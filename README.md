@@ -48,8 +48,9 @@ To see all documentation for additional interface open php-lmdb.php file.
 
 ##Documentation
 
-Here know more about LMDB visit official site http://symas.com/mdb
+Learn more about LMDB and visit official site http://symas.com/mdb
 For complete list of functions and descriptions visit http://symas.com/mdb/doc/group__internal.html
+For complete list if error codes on http://symas.com/mdb/doc/group__errors.html
 
 ####This is list of function available in PHP (same name as in original documentation) that have different number of parameters and/or return type:
 - MDB_env *mdb_env_create_swig();
