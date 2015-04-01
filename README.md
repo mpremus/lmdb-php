@@ -32,14 +32,13 @@ To see all documentation for additional interface open php-lmdb.php file.
 
 
 ##Basic LMDB concepts:
-
-    MDB_env represents a database environment that can be used in multiple processes. Created MDB_env object must be used by one process only but in global picture all threads operate with the same environment.
-    MDB_dbi represents a DB which belongs to a environment. The same environment can contain multiple named databases or an unnamed database.
-    MDB_txn represents a transaction. Multiple threads can open transactions for the same MDB_env, but a particular Txn object must only be accessed by one thread, and only one Txn object can be used on a thread at a time. Note that only one write transaction can be open in an environment in any given time. mdb_txn_begin() will simply block until the previous one is either mdb_txn_commit() or mdb_txn_abort.
-    MDB_cursor objects is used to iterate through data stored in DB or to iterate over data for same key if DB supports multiple keys in same DB. MDB_cursor is also used to insert or retrieve data.
-    MDB_val object is used to store data for insertion or for fetching data from DB.
-    MDB_stat object have current status of DB.
-    MDB_envinfo represents info received for current MDB_env object.
+- MDB_env represents a database environment that can be used in multiple processes. Created MDB_env object must be used by one process only but in global picture all threads operate with the same environment.
+- MDB_dbi represents a DB which belongs to a environment. The same environment can contain multiple named databases or an unnamed database.
+- MDB_txn represents a transaction. Multiple threads can open transactions for the same MDB_env, but a particular Txn object must only be accessed by one thread, and only one Txn object can be used on a thread at a time. Note that only one write transaction can be open in an environment in any given time. mdb_txn_begin() will simply block until the previous one is either mdb_txn_commit() or mdb_txn_abort.
+- MDB_cursor objects is used to iterate through data stored in DB or to iterate over data for same key if DB supports multiple keys in same DB. MDB_cursor is also used to insert or retrieve data.
+- MDB_val object is used to store data for insertion or for fetching data from DB.
+- MDB_stat object have current status of DB.
+- MDB_envinfo represents info received for current MDB_env object.
 
 
 ##IMPORTANT!!!
