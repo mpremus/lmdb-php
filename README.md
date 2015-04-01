@@ -58,7 +58,7 @@ For complete list of functions and descriptions visit
 For complete list if error codes visit 
     http://symas.com/mdb/doc/group__errors.html
 
-####This is list of function available in PHP (same name as in original documentation) that have different number of parameters and/or return type:
+#### List of functions that have same name as original API but that have different number of parameters and/or return type (other functions have same parameters and return type as original function):
 - MDB_env *mdb_env_create_swig();
 - MDB_txn *mdb_txn_begin_swig(MDB_env *env, MDB_txn *parent, unsigned int flags);
 - MDB_dbi mdb_dbi_open_swig (MDB_txn *txn, const char *name, unsigned int flags);
