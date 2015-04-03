@@ -93,7 +93,7 @@ $env->close();
 - include PHP style
     - To use additional interface which have more "PHP" style you must include lmdb-php.php to your PHP file.
 - Run example program!
-    - php -d extension=./lmdb-php.so test.php
+    - php -d extension=./lmdb-php.so tests/test.php
 
 ##Basic LMDB concepts:
 - MDB_env represents a database environment that can be used in multiple processes. Created MDB_env object must be used by one process only but in global picture all threads operate with the same environment.
