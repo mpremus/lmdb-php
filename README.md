@@ -1,4 +1,4 @@
-# php-lmdb
+#lmdb-php
 This is a PHP binding for LMDB (http://symas.com/mdb/), an extremely fast and lightweight transactional key-value store database.
 
 ##About this module
@@ -40,7 +40,7 @@ mdb_env_close($env);
 
 
 ```
-include_once("php-lmdb.php");
+include_once("lmdb-php.php");
  
 $env = new MDB_env();
 $rc = $env->create();
@@ -85,12 +85,15 @@ $env->close();
     - git clone https://gitorious.org/mdb/mdb.git
     - sudo make -j4
     - sudo make install
-- Compile php-lmdb.so file
-    - gcc -shared -fpic  php-lmdb_wrap.c -I/usr/include/php5/Zend/ -I/usr/include/php5/ -I/usr/include/php5/TSRM/ -I/usr/include/php5/main/ -llmdb -o php-lmdb.so
+- Compile lmdb-php.so file
+    - gcc -shared -fpic  lmdb-php_wrap.c -I/usr/include/php5/Zend/ -I/usr/include/php5/ -I/usr/include/php5/TSRM/ -I/usr/include/php5/main/ -llmdb -o lmdb-php.so
 - Edit php.ini     
     - Windows: http://php.net/manual/en/install.windows.extensions.php
-    - Linux: add "extension=php-lmdb.so" in your php.ini file (located at /etc/php5/)
--  To use additional interface which have more "PHP" style you must include php-lmdb.php file located at download folder 
+    - Linux: add "extension=lmdb-php.so" in your php.ini file (located at /etc/php5/)
+- include PHP style
+    - To use additional interface which have more "PHP" style you must include lmdb-php.php to your PHP file.
+- Run example program!
+    - php -d extension=./lmdb-php.so test.php
 
 ##Basic LMDB concepts:
 - MDB_env represents a database environment that can be used in multiple processes. Created MDB_env object must be used by one process only but in global picture all threads operate with the same environment.
