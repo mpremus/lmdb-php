@@ -4,52 +4,74 @@ This is a PHP binding for LMDB (http://symas.com/mdb/), an extremely fast and li
 ##About this module
 
 The aim of this module is to provide PHP bindings so that people can use LMDB from their node applications.
-
-From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
-- mdb_env_set_assert
-- mdb_set_compare
-- mdb_set_dupsortgit 
-- mdb_set_relfunc
-- mdb_reader_list
  
-##Usage:
+##Examples
+
+### C-style example
 ```
-    $env = mdb_env_create();
-    $rc = mdb_env_open($env, "./testdb", 0, 0664);
-    
-    $txn = mdb_txn_begin($env, null, 0);
-    
-    $dbi = mdb_dbi_open($txn,null,0);
-    
-    $key = mdb_val_create(2);
-    $data = mdb_val_create("This is test write");
-    
-    $rc = mdb_put($txn, $dbi, $key, $data, 0 );
-    $rc = mdb_txn_commit($txn);
-    
-    $txn = mdb_txn_begin($env, NULL, 0);
-    $cursor= mdb_cursor_open($txn, $dbi);
-    
-    while (mdb_cursor_get($cursor, $key, $data, MDB_NEXT ) == 0) {
-    	print_r("KEY values\n");
-    	print_r("size: ".mdb_val_size($key)."\n");
-    	print_r("data: ".mdb_val_data($key)."\n");
-    	
-    	print_r("DATA values\n");
-    	print_r("size: ".mdb_val_size($data)."\n");
-    	print_r("data: ".mdb_val_data($data)."\n");
-    }
-    
-    $rc = mdb_cursor_get($cursor,$key,$data,0);
-    
-    print_r("Retrived data:\n");
-    print_r(mdb_val_size($data)."\n");
-    print_r(mdb_val_data($data)."\n");
-    
-    mdb_cursor_close($cursor);
-    mdb_txn_abort($txn);
-    mdb_dbi_close($env, $dbi);
-    mdb_env_close($env);
+$env = mdb_env_create();
+$rc = mdb_env_open($env, "./testdb", 0, 0664);
+
+$txn = mdb_txn_begin($env, null, 0);
+$dbi = mdb_dbi_open($txn,null,0);
+
+$key = mdb_val_create(2);
+$data = mdb_val_create("This is test write");
+
+$rc = mdb_put($txn, $dbi, $key, $data, 0 );
+$rc = mdb_txn_commit($txn);
+
+$txn = mdb_txn_begin($env, NULL, 0);
+
+$cursor= mdb_cursor_open($txn, $dbi);
+$rc = mdb_cursor_get($cursor,$key,$data,0);
+
+print_r("Retrived data:\n");
+print_r(mdb_val_size($data)."\n");
+print_r(mdb_val_data($data)."\n");
+
+mdb_cursor_close($cursor);
+mdb_txn_abort($txn);
+mdb_dbi_close($env, $dbi);
+mdb_env_close($env);
+```
+
+### PHP-style example
+
+
+```
+  include_once("php-lmdb.php");
+ 
+  $env = new MDB_env();
+  $rc = $env->create();
+  $rc = $env->open("./testdb", 0, 0664);
+ 
+  $txn = new MDB_txn();
+  $rc = $txn->begin($env, null, 0);
+ 
+  $dbi = new MDB_dbi();
+  $rc = $dbi->open($txn,null,0);
+ 
+  $key = new MDB_val(1);
+  $data = new MDB_val("This is test write");
+ 
+  $rc = MDB::put($txn, $dbi, $key, $data, 0);
+ 
+  $rc = $txn->commit();
+  $rc = $txn->begin($env, NULL, 0);
+ 
+  $cursor = new MDB_cursor();
+  $rc = $cursor->open($txn, $dbi);
+  $rc = $cursor->get($key,$data,0);
+ 
+  print_r("Retrived data:\n");
+  print_r($data->getMvSize()."\n");
+  print_r($data->getMvData()."\n");
+ 
+  $cursor->close();
+  $txn->abort();
+  $dbi->close($env);
+  $env->close();
 ```
 
 ##Requirements
@@ -67,7 +89,7 @@ From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
     - gcc -shared -fpic  php-lmdb_wrap.c -I/usr/include/php5/Zend/ -I/usr/include/php5/ -I/usr/include/php5/TSRM/ -I/usr/include/php5/main/ -llmdb -o php-lmdb.so
 - Edit php.ini     
     - Windows: http://php.net/manual/en/install.windows.extensions.php
-    - Linux: add extension=php-lmdb.so in your php.ini file (located at /etc/php5/)
+    - Linux: add "extension=php-lmdb.so" in your php.ini file (located at /etc/php5/)
 -  To use additional interface which have more "PHP" style you must include php-lmdb.php file located at download folder 
 
 ##Basic LMDB concepts:
@@ -133,3 +155,10 @@ Functions that returns int values will also print error code but return int will
 - int mdb_info_last_txnid(MDB_envinfo *info)
 - int mdb_info_maxreaders(MDB_envinfo *info)
 - int mdb_info_numreaders(MDB_envinfo *info)
+
+From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
+- mdb_env_set_assert
+- mdb_set_compare
+- mdb_set_dupsortgit 
+- mdb_set_relfunc
+- mdb_reader_list
