@@ -12,7 +12,7 @@ From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
 - mdb_set_relfunc
 - mdb_reader_list
  
-Usage:
+##Usage:
 ```
     $env = mdb_env_create();
     $rc = mdb_env_open($env, "./testdb", 0, 0664);
