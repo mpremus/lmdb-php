@@ -1,9 +1,9 @@
 # php-lmdb
-This is a PHP binding for LMDB, an extremely fast and lightweight transactional key-value store database.
+This is a PHP binding for LMDB (http://symas.com/mdb/), an extremely fast and lightweight transactional key-value store database.
 
 ##About this module
 
-The aim of this module is to provide bindings so that people can use LMDB from their node applications. Goal was to have PHP interface same as C but because syntax is not same some functions have one parameter less that "C" one and they do not return success code they return in most cases actual values. Also there is interface for same functions but code style is much more like in PHP.
+The aim of this module is to provide PHP bindings so that people can use LMDB from their node applications.
 
 From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
 - mdb_env_set_assert
@@ -13,19 +13,22 @@ From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
 - mdb_reader_list
 
 ##Requirements
-- LMDB 0.9.14 (before installing new version od LMDB check if previous version is removed)
-install guide:
-    - git clone https://gitorious.org/mdb/mdb.git
-    - sudo make -j4
-    - sudo make install
-
+- LMDB 0.9.14 
 - PHP above 5.3
 
 ##How to:
 
-To use this module (in PHP extension) phplmdb.so u must add extension in your php.ini:
-Windows: http://php.net/manual/en/install.windows.extensions.php
-Linux: add extension=phplmdb.so in your php.ini file (located at /etc/php5/)
+- before installing new version od LMDB check if previous version is removed
+- LMDB install guide:
+    - git clone https://gitorious.org/mdb/mdb.git
+    - sudo make -j4
+    - sudo make install
+- Compile php-lmdb.so file
+    - gcc -shared -fpic  php_lmdb_wrap.c -I/usr/include/php5/Zend/ -I/usr/include/php5/ -I/usr/include/php5/TSRM/ -I/usr/include/php5/main/ -llmdb -o php-lmdb.so
+    
+To use this module (in PHP extension) php-lmdb.so u must add extension in your php.ini:
+- Windows: http://php.net/manual/en/install.windows.extensions.php
+- Linux: add extension=php-lmdb.so in your php.ini file (located at /etc/php5/)
 
 After this step you can now use all function for LMDB. To use additional interface which have more "PHP" style you must include php-lmdb.php file located at download folder.
 To see all documentation for additional interface open php-lmdb.php file.
