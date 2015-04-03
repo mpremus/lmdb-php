@@ -30,7 +30,7 @@ To use this module (in PHP extension) php-lmdb.so u must add extension in your p
 - Windows: http://php.net/manual/en/install.windows.extensions.php
 - Linux: add extension=php-lmdb.so in your php.ini file (located at /etc/php5/)
 
-If you want to check if everything is working fine start your php file with this line
+If you want to check if everything is working start your php file with this line
 - php -d extension=./php-lmdb.so "your test file".php
 
 After this step you can now use all function for LMDB. To use additional interface which have more "PHP" style you must include php-lmdb.php file located at download folder.
