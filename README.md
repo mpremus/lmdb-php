@@ -7,40 +7,12 @@ The aim of this module is to provide PHP bindings so that people can use LMDB fr
  
 ##Examples
 
-### C-style example
-```
-$env = mdb_env_create();
-$rc = mdb_env_open($env, "./testdb", 0, 0664);
-
-$txn = mdb_txn_begin($env, null, 0);
-$dbi = mdb_dbi_open($txn,null,0);
-
-$key = mdb_val_create(2);
-$data = mdb_val_create("This is test write");
-
-$rc = mdb_put($txn, $dbi, $key, $data, 0 );
-$rc = mdb_txn_commit($txn);
-
-$txn = mdb_txn_begin($env, NULL, 0);
-
-$cursor= mdb_cursor_open($txn, $dbi);
-$rc = mdb_cursor_get($cursor,$key,$data,0);
-
-print_r("Retrived data:\n");
-print_r(mdb_val_size($data)."\n");
-print_r(mdb_val_data($data)."\n");
-
-mdb_cursor_close($cursor);
-mdb_txn_abort($txn);
-mdb_dbi_close($env, $dbi);
-mdb_env_close($env);
-```
-
 ### PHP-style example
-
-
 ```
 include_once("lmdb-php.php");
+
+$key = new MDB_val(1);
+$data = new MDB_val("This is test write");
  
 $env = new MDB_env();
 $rc = $env->create();
@@ -51,27 +23,31 @@ $rc = $txn->begin($env, null, 0);
  
 $dbi = new MDB_dbi();
 $rc = $dbi->open($txn,null,0);
-
-$key = new MDB_val(1);
-$data = new MDB_val("This is test write");
- 
 $rc = MDB::put($txn, $dbi, $key, $data, 0);
- 
 $rc = $txn->commit();
-$rc = $txn->begin($env, NULL, 0);
- 
-$cursor = new MDB_cursor();
-$rc = $cursor->open($txn, $dbi);
-$rc = $cursor->get($key,$data,0);
- 
-print_r("Retrived data:\n");
-print_r($data->getMvSize()."\n");
-print_r($data->getMvData()."\n");
  
 $cursor->close();
 $txn->abort();
 $dbi->close($env);
 $env->close();
+```
+### C-style example
+```
+$key = mdb_val_create(2);
+$data = mdb_val_create("This is test write");
+
+$env = mdb_env_create();
+$rc = mdb_env_open($env, "./testdb", 0, 0664);
+
+$txn = mdb_txn_begin($env, null, 0);
+$dbi = mdb_dbi_open($txn,null,0);
+$rc = mdb_put($txn, $dbi, $key, $data, 0 );
+$rc = mdb_txn_commit($txn);
+
+mdb_cursor_close($cursor);
+mdb_txn_abort($txn);
+mdb_dbi_close($env, $dbi);
+mdb_env_close($env);
 ```
 
 ##Requirements
