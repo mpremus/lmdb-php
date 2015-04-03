@@ -24,11 +24,14 @@ From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
     - sudo make -j4
     - sudo make install
 - Compile php-lmdb.so file
-    - gcc -shared -fpic  php_lmdb_wrap.c -I/usr/include/php5/Zend/ -I/usr/include/php5/ -I/usr/include/php5/TSRM/ -I/usr/include/php5/main/ -llmdb -o php-lmdb.so
+    - gcc -shared -fpic  php-lmdb_wrap.c -I/usr/include/php5/Zend/ -I/usr/include/php5/ -I/usr/include/php5/TSRM/ -I/usr/include/php5/main/ -llmdb -o php-lmdb.so
     
 To use this module (in PHP extension) php-lmdb.so u must add extension in your php.ini:
 - Windows: http://php.net/manual/en/install.windows.extensions.php
 - Linux: add extension=php-lmdb.so in your php.ini file (located at /etc/php5/)
+
+If you want to check if everything is working fine start your php file with this line
+- php -d extension=./php-lmdb.so "your test file".php
 
 After this step you can now use all function for LMDB. To use additional interface which have more "PHP" style you must include php-lmdb.php file located at download folder.
 To see all documentation for additional interface open php-lmdb.php file.
@@ -97,5 +100,3 @@ Functions that returns int values will also print error code but return int will
 - int mdb_info_last_txnid(MDB_envinfo *info)
 - int mdb_info_maxreaders(MDB_envinfo *info)
 - int mdb_info_numreaders(MDB_envinfo *info)
-
-
