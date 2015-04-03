@@ -18,24 +18,17 @@ From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
 
 ##How to:
 
-- before installing new version od LMDB check if previous version is removed
+- Before installing new version od LMDB check if previous version is removed
 - LMDB install guide:
     - git clone https://gitorious.org/mdb/mdb.git
     - sudo make -j4
     - sudo make install
 - Compile php-lmdb.so file
     - gcc -shared -fpic  php-lmdb_wrap.c -I/usr/include/php5/Zend/ -I/usr/include/php5/ -I/usr/include/php5/TSRM/ -I/usr/include/php5/main/ -llmdb -o php-lmdb.so
-    
-To use this module (in PHP extension) php-lmdb.so u must add extension in your php.ini:
-- Windows: http://php.net/manual/en/install.windows.extensions.php
-- Linux: add extension=php-lmdb.so in your php.ini file (located at /etc/php5/)
-
-If you want to check if everything is working start your php file with this line
-- php -d extension=./php-lmdb.so "your file name".php
-
-After this step you can now use all function for LMDB. To use additional interface which have more "PHP" style you must include php-lmdb.php file located at download folder.
-To see all documentation for additional interface open php-lmdb.php file.
-
+- Edit php.ini     
+    - Windows: http://php.net/manual/en/install.windows.extensions.php
+    - Linux: add extension=php-lmdb.so in your php.ini file (located at /etc/php5/)
+-  To use additional interface which have more "PHP" style you must include php-lmdb.php file located at download folder 
 
 ##Basic LMDB concepts:
 - MDB_env represents a database environment that can be used in multiple processes. Created MDB_env object must be used by one process only but in global picture all threads operate with the same environment.
