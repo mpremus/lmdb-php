@@ -1,5 +1,5 @@
 # php-lmdb
-This is a php binding for LMDB, an extremely fast and lightweight transactional key-value store database.
+This is a PHP binding for LMDB, an extremely fast and lightweight transactional key-value store database.
 
 ##About this module
 
@@ -23,7 +23,7 @@ install guide:
 
 ##How to:
 
-To use this module (in php extension) phplmdb.so u must add extension in your php.ini:
+To use this module (in PHP extension) phplmdb.so u must add extension in your php.ini:
 Windows: http://php.net/manual/en/install.windows.extensions.php
 Linux: add extension=phplmdb.so in your php.ini file (located at /etc/php5/)
 
