@@ -1,7 +1,7 @@
 <?php
 
 $env = mdb_env_create();
-$rc = mdb_env_open($env, "./tests/testdb", 0, 0664);
+$rc = mdb_env_open($env, "./testdb", 0, 0664);
 
 $txn = mdb_txn_begin($env, null, 0);
 

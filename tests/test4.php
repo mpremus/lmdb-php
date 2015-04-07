@@ -1,9 +1,9 @@
 <?php
-include_once("lmdb-php.php");
+include_once("../lmdb-php.php");
 
 $env = new MDB_env();
 $rc = $env->create();
-$rc = $env->open("./tests/testdb", 0, 0664);
+$rc = $env->open("./testdb", 0, 0664);
 
 $txn = new MDB_txn();
 $rc = $txn->begin($env, null, 0);
