@@ -51,7 +51,7 @@ mdb_env_close($env);
 ```
 
 ##Requirements
-- LMDB 0.9.14 
+- LMDB
 - PHP above 5.3
 
 ##How to:
@@ -136,7 +136,7 @@ Functions that returns int values will also print error code but return int will
 - int mdb_info_maxreaders(MDB_envinfo *info)
 - int mdb_info_numreaders(MDB_envinfo *info)
 
-From current version of LMDB (LMDB 0.9.14) these functions are not implemented:
+####From current version of LMDB these functions are not implemented:
 - mdb_env_set_assert
 - mdb_set_compare
 - mdb_set_dupsortgit 
