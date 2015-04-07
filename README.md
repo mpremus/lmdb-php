@@ -59,10 +59,11 @@ mdb_env_close($env);
 - Before installing new version od LMDB check if previous version is removed
 - LMDB install guide:
     - git clone https://gitorious.org/mdb/mdb.git
-    - sudo make -j4
+    - make -j4
     - sudo make install
 - Compile lmdb-php.so file
-    - gcc -shared -fpic  lmdb-php_wrap.c -I/usr/include/php5/Zend/ -I/usr/include/php5/ -I/usr/include/php5/TSRM/ -I/usr/include/php5/main/ -llmdb -o lmdb-php.so
+    - make
+    - make test
 - Edit php.ini     
     - Windows: http://php.net/manual/en/install.windows.extensions.php
     - Linux: add "extension=lmdb-php.so" in your php.ini file (located at /etc/php5/)
