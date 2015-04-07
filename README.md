@@ -143,6 +143,6 @@ Functions that returns int values will also print error code but return int will
 - mdb_set_relfunc
 - mdb_reader_list
 
-### Author
+## Author
 - name: Mateo Premuš 
 - email: mpremus@gmail.com
