@@ -1,9 +1,9 @@
 <?php
-include_once("php-lmdb.php");
+include_once("lmdb-php.php");
 
 $env = new MDB_env();
 $rc = $env->create();
-$rc = $env->open("./testdb", 0, 0664);
+$rc = $env->open("./tests/testdb", 0, 0664);
 
 $txn = new MDB_txn();
 $rc = $txn->begin($env, null, 0);
@@ -14,6 +14,9 @@ $rc = $dbi->open($txn,null,0);
 $rcDel = $txn->delValue($dbi, 10);
 $rc = $txn->commit();
 
+if($rc != 0)
+	return 0;
+
 if($rcDel == 0)
 	print_r("value successfully deleted\n");
 else
@@ -23,4 +26,5 @@ $txn->abort();
 $dbi->close($env);
 $env->close();
 
+return 1;
 ?>

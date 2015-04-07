@@ -1,7 +1,7 @@
 <?php
 
 $env = mdb_env_create();
-$rc = mdb_env_open($env, "./testdb", 0, 0664);
+$rc = mdb_env_open($env, "./tests/testdb", 0, 0664);
 
 $txn = mdb_txn_begin($env, null, 0);
 
@@ -29,6 +29,9 @@ while (mdb_cursor_get($cursor, $key, $data, MDB_NEXT ) == 0) {
 
 $rc = mdb_cursor_get($cursor,$key,$data,0);
 
+if($rc != 0)
+	return 0;
+
 print_r("Retrived data:\n");
 print_r(mdb_val_size($data)."\n");
 print_r(mdb_val_data($data)."\n");
@@ -39,4 +42,5 @@ mdb_txn_abort($txn);
 mdb_dbi_close($env, $dbi);
 mdb_env_close($env);
 
+return 1;
 ?>
