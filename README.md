@@ -84,7 +84,7 @@ mdb_env_close($env);
 
 ##IMPORTANT!!!
 - Before using this module look at test files to see how to use interfaces.
-- Do NOT forget to close MDB_env, MDB_dbi, MDB_txn and MDB_cursor when u are done using this objects.
+- Do NOT forget to close MDB_env, MDB_dbi, MDB_txn and MDB_cursor when you are done using this objects.
 - More examples how to use LMDB can be found in your local lmdb folder (location of git clone for LMDB).They are written in C code but the logic is same and function names are same.
 
 
