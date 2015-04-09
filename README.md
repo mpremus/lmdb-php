@@ -51,6 +51,7 @@ mdb_env_close($env);
 ```
 
 ##Requirements
+
 - LMDB
 - PHP 5.4 and above
 
