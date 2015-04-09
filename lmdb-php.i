@@ -60,7 +60,7 @@
 %rename (mdb_env_stat) mdb_env_stat_swig(MDB_env *env);
 %rename (mdb_env_info) mdb_env_info_swig(MDB_env *env);
 
-%inline %{  
+%inline %{
   MDB_envinfo *mdb_env_info_swig(MDB_env *env){
     MDB_envinfo *info;
     info = (MDB_envinfo*)malloc( sizeof( MDB_envinfo ) );
@@ -91,7 +91,7 @@
 
   int mdb_set_relctx_swig(MDB_txn *txn, MDB_dbi dbi, char *value){
     int length = strlen(value);
-    char *res = malloc(length); 
+    char *res = malloc(length);
     strncpy(res, value, length);
 
     void *pointer;
@@ -99,7 +99,7 @@
 
     return mdb_set_relctx(txn, dbi, pointer);
   }
-  
+
   MDB_stat  *mdb_stat_swig(MDB_txn *txn, MDB_dbi dbi){
     MDB_stat *stat;
     stat = (MDB_stat*)malloc( sizeof( MDB_stat ) );
@@ -155,7 +155,7 @@
 
   int mdb_env_set_userctx_swig(MDB_env *env, char *value){
     int length = strlen(value);
-    char *res = malloc(length); 
+    char *res = malloc(length);
     strncpy(res, value, length);
 
     void *pointer;
@@ -167,7 +167,7 @@
   char *mdb_env_get_userctx_swig(MDB_env *env){
     void *pointer = mdb_env_get_userctx(env);
 
-    return (char *)pointer;    
+    return (char *)pointer;
   }
 
   int mdb_env_get_flags_swig(MDB_env *env){
@@ -192,9 +192,9 @@
         fprintf(stderr, "Error code for mdb_env_get_path: %d\n", rc);
         return NULL;
     }
-    
+
     return (unsigned char *)path;
-  }  
+  }
 
   mdb_filehandle_t *mdb_env_get_fd_swig (MDB_env *env){
     mdb_filehandle_t fd;
@@ -226,14 +226,14 @@
   }
 
   MDB_env *mdb_env_create_swig() {
-    MDB_env *env;   
+    MDB_env *env;
 
-    int rc = mdb_env_create(&env);  
+    int rc = mdb_env_create(&env);
 
     if(rc != 0){
-        fprintf(stderr, "Error code for mdb_env_create: %d\n", rc); 
+        fprintf(stderr, "Error code for mdb_env_create: %d\n", rc);
     }
-   
+
     return env;
   }
 
@@ -243,7 +243,7 @@
 
   struct MDB_txn *mdb_txn_begin_swig(MDB_env *env, MDB_txn *parent, unsigned int flags){
     MDB_txn *txn;
-  
+
     int rc = mdb_txn_begin(env, parent, flags, &txn);
 
     if(rc != 0){
@@ -254,14 +254,14 @@
     return txn;
   }
 
-  MDB_dbi mdb_dbi_open_swig (MDB_txn *txn, const char *name, unsigned int flags){  
+  MDB_dbi mdb_dbi_open_swig (MDB_txn *txn, const char *name, unsigned int flags){
     MDB_dbi dbi;
 
     int rc = mdb_dbi_open(txn, name, flags, &dbi);
-    
+
     if(rc != 0){
-      fprintf(stderr, "Error code for mdb_dbi_open: %d\n", rc);  
-      return -1;  
+      fprintf(stderr, "Error code for mdb_dbi_open: %d\n", rc);
+      return -1;
     }
 
     return dbi;
@@ -270,12 +270,12 @@
 
   struct MDB_cursor *mdb_cursor_open_swig (MDB_txn *txn, MDB_dbi dbi){
     MDB_cursor *cursor;
-    
+
     int rc = mdb_cursor_open(txn, dbi, &cursor);
 
     if(rc != 0){
       fprintf(stderr, "Error code for mdb_cursor_open: %d\n", rc);
-      return NULL;  
+      return NULL;
     }
 
     return cursor;
@@ -284,14 +284,14 @@
   MDB_val *mdb_val_create(char *value){
     MDB_val *key;
     key = (MDB_val*)malloc( sizeof( MDB_val ) );
-    
+
     int length = strlen(value);
-    char *res = malloc(length); 
+    char *res = malloc(length);
     strncpy(res, value, length);
 
     key->mv_size = length;
     key->mv_data = res;
-   
+
     return key;
   }
 
