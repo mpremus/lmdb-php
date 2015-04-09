@@ -1084,7 +1084,7 @@ extern "C" {
     int rc =  mdb_env_info(env, info);
 
     if(rc != 0){
-        printf("Error code for mdb_env_info: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_env_info: %d\n", rc);
         return NULL;
     }
 
@@ -1098,7 +1098,7 @@ extern "C" {
     int rc =  mdb_env_stat(env, stat);
 
     if(rc != 0){
-        printf("Error code for mdb_env_stat: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_env_stat: %d\n", rc);
         return NULL;
     }
 
@@ -1123,7 +1123,7 @@ extern "C" {
     int rc = mdb_stat(txn, dbi, stat);
 
      if(rc != 0){
-        printf("Error code for mdb_stat: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_stat: %d\n", rc);
         return NULL;
     }
 
@@ -1136,7 +1136,7 @@ extern "C" {
     int rc = mdb_reader_check(env, &dead);
 
     if(rc != 0){
-        printf("Error code for mdb_reader_check: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_reader_check: %d\n", rc);
         return -1;
     }
 
@@ -1149,7 +1149,7 @@ extern "C" {
     int rc = mdb_cursor_count(cursor, &duplicates);
 
     if(rc != 0){
-        printf("Error code for mdb_cursor_count: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_cursor_count: %d\n", rc);
         return -1;
     }
 
@@ -1162,7 +1162,7 @@ extern "C" {
     int rc = mdb_dbi_flags(txn, dbi, &flags);
 
     if(rc != 0){
-        printf("Error code for mdb_dbi_flags: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_dbi_flags: %d\n", rc);
         return -1;
     }
 
@@ -1192,7 +1192,7 @@ extern "C" {
     int rc = mdb_env_get_maxreaders(env, &flags);
 
     if(rc != 0){
-        printf("Error code for mdb_env_get_flags: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_env_get_flags: %d\n", rc);
         return -1;
     }
 
@@ -1205,7 +1205,7 @@ extern "C" {
     int rc = mdb_env_get_path(env, &path);
 
     if(rc != 0){
-        printf("Error code for env_get_path: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_env_get_path: %d\n", rc);
         return NULL;
     }
     
@@ -1218,7 +1218,7 @@ extern "C" {
     int rc = mdb_env_get_fd(env, &fd);
 
     if(rc != 0){
-        printf("Error code for env_get_fd: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_env_get_fd: %d\n", rc);
         return NULL;
     }
 
@@ -1234,7 +1234,7 @@ extern "C" {
     int rc = mdb_env_get_maxreaders(env, &readers);
 
     if(rc != 0){
-        printf("Error code for env_get_maxreaders: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_env_get_maxreaders: %d\n", rc);
         return -1;
     }
 
@@ -1247,12 +1247,12 @@ extern "C" {
     int rc = mdb_env_create(&env);  
 
     if(rc != 0){
-        printf("Error code for env create: %d \n", rc); 
+        fprintf(stderr, "Error code for mdb_env_create: %d\n", rc); 
     }
    
     return env;
   }
-	
+
   int mdb_env_open_swig(MDB_env *env, const char *path, unsigned int flags, int mode) {
     return mdb_env_open(env, path, flags, mode);
   }
@@ -1263,7 +1263,7 @@ extern "C" {
     int rc = mdb_txn_begin(env, parent, flags, &txn);
 
     if(rc != 0){
-        printf("Error code for txn begin: %d \n", rc);
+        fprintf(stderr, "Error code for mdb_txn_begin: %d\n", rc);
         return NULL;
     }
 
@@ -1276,7 +1276,7 @@ extern "C" {
     int rc = mdb_dbi_open(txn, name, flags, &dbi);
     
     if(rc != 0){
-      printf("Error code for dbi open: %d \n", rc);  
+      fprintf(stderr, "Error code for mdb_dbi_open: %d\n", rc);  
       return -1;  
     }
 
@@ -1290,7 +1290,7 @@ extern "C" {
     int rc = mdb_cursor_open(txn, dbi, &cursor);
 
     if(rc != 0){
-      printf("Error code for cursor open: %d \n", rc);
+      fprintf(stderr, "Error code for mdb_cursor_open: %d\n", rc);
       return NULL;  
     }
 
