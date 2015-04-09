@@ -3,7 +3,7 @@ This is a PHP binding for LMDB (http://symas.com/mdb/), an extremely fast and li
 
 ##About this module
 
-The aim of this module is to provide PHP bindings so that people can use LMDB from their node applications.
+The aim of this module is to provide PHP bindings so that people can use LMDB in their applications.
  
 ##Examples
 
@@ -52,25 +52,24 @@ mdb_env_close($env);
 
 ##Requirements
 - LMDB
-- PHP above 5.3
+- PHP 5.4 and above
 
 ##How to:
 
-- Before installing new version od LMDB check if previous version is removed
-- LMDB install guide:
+- LMDB compile / install guide:
     - git clone https://gitorious.org/mdb/mdb.git
-    - make -j4
+    - make
     - sudo make install
-- Compile lmdb-php.so file
+- LMDB-PHP compile guide:
     - make
     - make test
-- Edit php.ini     
+- Necessary php.ini modifications:
     - Windows: http://php.net/manual/en/install.windows.extensions.php
-    - Linux: add "extension=lmdb-php.so" in your php.ini file (located at /etc/php5/)
-- include PHP style
-    - To use additional interface which have more "PHP" style you must include lmdb-php.php to your PHP file.
-- Run example program!
+    - Linux: add "extension=lmdb-php.so" to your php.ini file, typically located in /etc/php5/
+- Run example program:
     - php -d extension=./lmdb-php.so tests/test.php
+
+LMDB-PHP supports both object-oriented ("PHP-style") and procedural ("C-style") usage.  To use the object-oriented PHP interface you must include lmdb-php.php in your PHP code.
 
 ##Basic LMDB concepts:
 - MDB_env represents a database environment that can be used in multiple processes. Created MDB_env object must be used by one process only but in global picture all threads operate with the same environment.
@@ -81,12 +80,10 @@ mdb_env_close($env);
 - MDB_stat object have current status of DB.
 - MDB_envinfo represents info received for current MDB_env object.
 
-
-##IMPORTANT!!!
+##IMPORTANT
 - Before using this module look at test files to see how to use interfaces.
 - Do NOT forget to close MDB_env, MDB_dbi, MDB_txn and MDB_cursor when you are done using this objects.
 - More examples how to use LMDB can be found in your local lmdb folder (location of git clone for LMDB).They are written in C code but the logic is same and function names are same.
-
 
 ##Documentation
 
@@ -119,7 +116,6 @@ For complete list if error codes visit
 All functions returning pointers (* sign) and char will return NULL if there is some error and function will print error code. All error codes can be found on official website.
 Functions that returns int values will also print error code but return int will be -1.
 
-
 ####Additional list for helper functions to retrieve data from objects:
 - int mdb_val_size (MDB_val *key);
 - char *mdb_val_data (MDB_val *key);
@@ -144,5 +140,4 @@ Functions that returns int values will also print error code but return int will
 - mdb_reader_list
 
 ## Authors
-- name: Mateo Premus and Davor Ocelic  
-- email: mpremus@gmail.com
+- Mateo Premus (mpremus@gmail.com), Davor Ocelic
