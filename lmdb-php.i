@@ -260,8 +260,8 @@
     int rc = mdb_dbi_open(txn, name, flags, &dbi);
 
     if(rc != 0){
-      fprintf(stderr, "Error code for mdb_dbi_open: %d\n", rc);
-      return -1;
+        fprintf(stderr, "Error code for mdb_dbi_open: %d\n", rc);
+        return -1;
     }
 
     return dbi;
@@ -274,8 +274,8 @@
     int rc = mdb_cursor_open(txn, dbi, &cursor);
 
     if(rc != 0){
-      fprintf(stderr, "Error code for mdb_cursor_open: %d\n", rc);
-      return NULL;
+        fprintf(stderr, "Error code for mdb_cursor_open: %d\n", rc);
+        return NULL;
     }
 
     return cursor;
