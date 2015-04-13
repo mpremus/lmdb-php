@@ -3,15 +3,9 @@ class MDB_env{
 	protected $mdbEnvPtr = null;
 
 	public function create (){
-		ob_start();
-
 		$this->setPtr(mdb_env_create());
 
-		$output = ob_get_contents();
-
-		ob_end_clean();
-
-		$this->validatePtr($output);
+		$this->validatePtr();
 
 		return 0;
 	}
@@ -159,19 +153,13 @@ class MDB_env{
 class MDB_txn {
 	protected $mdbTxnPtr = null;
 
-	public function begin($env, $parent, $flags) {
-		ob_start();
-
+	public function begin($env, $parent, $flags) {	
 		if($parent != null)
 			$parent = $parent->getPtr();
 
 		$this->setPtr(mdb_txn_begin($env->getPtr(), $parent, $flags));
 
-		$output = ob_get_contents();
-
-		ob_end_clean();
-
-		$this->validatePtr($output);		
+		$this->validatePtr();		
 
 		return 0;
 	}
@@ -280,23 +268,14 @@ class MDB_dbi {
 	protected $mdbEnvPtr;
 
 	public function open($txn, $name, $flags) {
-		ob_start();
-
 		if($txn != null)
 			$txn = $txn->getPtr();
 
 		$mdbDbiPtr = mdb_dbi_open($txn, $name, $flags);
 
-		$output = ob_get_contents();
-
-		ob_end_clean();
-
-		if(!empty($output))
-			$mdbDbiPtr = null;
-
 		$this->setPtr($mdbDbiPtr);
 
-		$this->validatePtr($output);
+		$this->validatePtr();
 
 		return 0;
 	}
@@ -339,8 +318,6 @@ class MDB_cursor {
 	protected $mdbCursorPtr;
 
 	public function open($txn, $dbi) {
-		ob_start();
-
 		if($txn != null)
 			$txn = $txn->getPtr();
 
@@ -349,11 +326,7 @@ class MDB_cursor {
 
 		$this->setPtr(mdb_cursor_open($txn, $dbi));
 
-		$output = ob_get_contents();
-
-		ob_end_clean();
-
-		$this->validatePtr($output);
+		$this->validatePtr();
 
 		return 0;
 	}
