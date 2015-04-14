@@ -1298,7 +1298,7 @@ extern "C" {
 
         int rc = mdb_cursor_open(txn, dbi, &cursor);
 
-        if(rc == 0){
+        if(rc != 0){
             php_error_docref(NULL, E_NOTICE, "Error code for mdb_cursor_open: %d\n", rc);
         }
 
