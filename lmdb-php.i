@@ -69,7 +69,7 @@
         int rc =  mdb_env_info(env, info);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_info: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_info: %d\n", rc);
         }
 
         return info;
@@ -82,7 +82,7 @@
         int rc =  mdb_env_stat(env, stat);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_stat: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_stat: %d\n", rc);
         }
 
         return stat;
@@ -106,7 +106,7 @@
         int rc = mdb_stat(txn, dbi, stat);
 
          if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_stat: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_stat: %d\n", rc);
         }
 
         return stat;
@@ -118,7 +118,7 @@
         int rc = mdb_reader_check(env, &dead);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_reader_check: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_reader_check: %d\n", rc);
         }
 
         return dead;
@@ -130,7 +130,7 @@
         int rc = mdb_cursor_count(cursor, &duplicates);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_cursor_count: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_cursor_count: %d\n", rc);
         }
 
         return duplicates;
@@ -142,7 +142,7 @@
         int rc = mdb_dbi_flags(txn, dbi, &flags);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_dbi_flags: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_dbi_flags: %d\n", rc);
         }
 
         return flags;
@@ -171,7 +171,7 @@
         int rc = mdb_env_get_maxreaders(env, &flags);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_get_flags: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_get_flags: %d\n", rc);
         }
 
         return flags;
@@ -183,7 +183,7 @@
         int rc = mdb_env_get_path(env, &path);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_get_path: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_get_path: %d\n", rc);
         }
 
         return (unsigned char *)path;
@@ -195,7 +195,7 @@
         int rc = mdb_env_get_fd(env, &fd);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_get_fd: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_get_fd: %d\n", rc);
         }
 
         mdb_filehandle_t * fdp;
@@ -210,7 +210,7 @@
         int rc = mdb_env_get_maxreaders(env, &readers);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_get_maxreaders: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_get_maxreaders: %d\n", rc);
         }
 
         return readers;
@@ -222,7 +222,7 @@
         int rc = mdb_env_create(&env);
 
         if(rc != 0){	
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_txn_begin: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_txn_begin: %d\n", rc);
         }
 
         return env;
@@ -238,7 +238,7 @@
         int rc = mdb_txn_begin(env, parent, flags, &txn);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE,"Error code for mdb_txn_begin: %d\n", rc);        
+            php_error_docref(NULL, E_NOTICE,"mdb_txn_begin: %d\n", rc);        
         }
 
         return txn;
@@ -250,7 +250,7 @@
         int rc = mdb_dbi_open(txn, name, flags, &dbi);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_dbi_open: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_dbi_open: %d\n", rc);
         }
 
         return dbi;
@@ -263,7 +263,7 @@
         int rc = mdb_cursor_open(txn, dbi, &cursor);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_cursor_open: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_cursor_open: %d\n", rc);
         }
 
         return cursor;
