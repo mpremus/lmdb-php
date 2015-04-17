@@ -11,22 +11,22 @@
  * ----------------------------------------------------------------------------- */
 
 // Try to load our extension if it's not already loaded.
-if (!extension_loaded('example')) {
+if (!extension_loaded('lmdb')) {
   if (strtolower(substr(PHP_OS, 0, 3)) === 'win') {
-    if (!dl('php_example.dll')) return;
+    if (!dl('php_lmdb.dll')) return;
   } else {
     // PHP_SHLIB_SUFFIX gives 'dylib' on MacOS X but modules are 'so'.
     if (PHP_SHLIB_SUFFIX === 'dylib') {
-      if (!dl('example.so')) return;
+      if (!dl('lmdb.so')) return;
     } else {
-      if (!dl('example.'.PHP_SHLIB_SUFFIX)) return;
+      if (!dl('lmdb.'.PHP_SHLIB_SUFFIX)) return;
     }
   }
 }
 
 
 
-abstract class example {
+abstract class lmdb {
 	const MDB_VERSION_MAJOR = MDB_VERSION_MAJOR;
 
 	const MDB_VERSION_MINOR = MDB_VERSION_MINOR;
@@ -229,10 +229,6 @@ abstract class example {
 
 	static function mdb_txn_env($txn) {
 		return mdb_txn_env($txn);
-	}
-
-	static function mdb_txn_id($txn) {
-		return mdb_txn_id($txn);
 	}
 
 	static function mdb_txn_commit($txn) {
@@ -476,14 +472,14 @@ class MDB_val {
 	function __set($var,$value) {
 		if ($var === 'mv_size') return MDB_val_mv_size_set($this->_cPtr,$value);
 		if ($var === 'mv_data') return MDB_val_mv_data_set($this->_cPtr,$value);
-		if ($var === 'thisown') return swig_example_alter_newobject($this->_cPtr,$value);
+		if ($var === 'thisown') return swig_lmdb_alter_newobject($this->_cPtr,$value);
 		$this->_pData[$var] = $value;
 	}
 
 	function __get($var) {
 		if ($var === 'mv_size') return MDB_val_mv_size_get($this->_cPtr);
 		if ($var === 'mv_data') return MDB_val_mv_data_get($this->_cPtr);
-		if ($var === 'thisown') return swig_example_get_newobject($this->_cPtr);
+		if ($var === 'thisown') return swig_lmdb_get_newobject($this->_cPtr);
 		return $this->_pData[$var];
 	}
 
@@ -509,14 +505,14 @@ class MDB_stat {
 	function __set($var,$value) {
 		$func = 'MDB_stat_'.$var.'_set';
 		if (function_exists($func)) return call_user_func($func,$this->_cPtr,$value);
-		if ($var === 'thisown') return swig_example_alter_newobject($this->_cPtr,$value);
+		if ($var === 'thisown') return swig_lmdb_alter_newobject($this->_cPtr,$value);
 		$this->_pData[$var] = $value;
 	}
 
 	function __get($var) {
 		$func = 'MDB_stat_'.$var.'_get';
 		if (function_exists($func)) return call_user_func($func,$this->_cPtr);
-		if ($var === 'thisown') return swig_example_get_newobject($this->_cPtr);
+		if ($var === 'thisown') return swig_lmdb_get_newobject($this->_cPtr);
 		return $this->_pData[$var];
 	}
 
@@ -542,14 +538,14 @@ class MDB_envinfo {
 	function __set($var,$value) {
 		$func = 'MDB_envinfo_'.$var.'_set';
 		if (function_exists($func)) return call_user_func($func,$this->_cPtr,$value);
-		if ($var === 'thisown') return swig_example_alter_newobject($this->_cPtr,$value);
+		if ($var === 'thisown') return swig_lmdb_alter_newobject($this->_cPtr,$value);
 		$this->_pData[$var] = $value;
 	}
 
 	function __get($var) {
 		$func = 'MDB_envinfo_'.$var.'_get';
 		if (function_exists($func)) return call_user_func($func,$this->_cPtr);
-		if ($var === 'thisown') return swig_example_get_newobject($this->_cPtr);
+		if ($var === 'thisown') return swig_lmdb_get_newobject($this->_cPtr);
 		return $this->_pData[$var];
 	}
 
