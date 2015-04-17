@@ -1502,7 +1502,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_val_mv_size_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -1653,7 +1653,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_stat_ms_psize_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -1709,7 +1709,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_stat_ms_depth_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -1765,7 +1765,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_stat_ms_branch_pages_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -1821,7 +1821,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_stat_ms_leaf_pages_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -1877,7 +1877,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_stat_ms_overflow_pages_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -1933,7 +1933,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_stat_ms_entries_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2084,7 +2084,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_envinfo_me_mapsize_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2140,7 +2140,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_envinfo_me_last_pgno_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2196,7 +2196,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_envinfo_me_last_txnid_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2252,7 +2252,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_envinfo_me_maxreaders_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2308,7 +2308,7 @@ ZEND_NAMED_FUNCTION(_wrap_MDB_envinfo_me_numreaders_set) {
   }
   if(!arg1) SWIG_PHP_Error(E_ERROR, "this pointer is NULL");
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2436,7 +2436,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_strerror) {
   }
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[0]);
   arg1 = (int) Z_LVAL_PP(args[0]);
   /*@SWIG@*/;
@@ -2472,7 +2472,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_copy) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
   if ((*args[1])->type==IS_NULL) {
     arg2 = (char *) 0;
   } else {
@@ -2508,7 +2508,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_copyfd) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (mdb_filehandle_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2541,7 +2541,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_copy2) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
   if ((*args[1])->type==IS_NULL) {
     arg2 = (char *) 0;
   } else {
@@ -2551,7 +2551,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_copy2) {
   /*@SWIG@*/;
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -2584,13 +2584,13 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_copyfd2) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (mdb_filehandle_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -2622,7 +2622,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_sync) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2677,13 +2677,13 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_set_flags) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -2715,7 +2715,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_set_mapsize) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (size_t) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2747,7 +2747,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_set_maxreaders) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2779,7 +2779,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_set_maxdbs) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -2979,7 +2979,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_dbi_close) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3010,13 +3010,13 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_drop) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -3050,7 +3050,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_get) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3095,7 +3095,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_put) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3111,7 +3111,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_put) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[4]);
   arg5 = (unsigned int) Z_LVAL_PP(args[4]);
   /*@SWIG@*/;
@@ -3145,7 +3145,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_del) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3302,7 +3302,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_cursor_get) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (MDB_cursor_op) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -3346,7 +3346,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_cursor_put) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (unsigned int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -3378,7 +3378,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_cursor_del) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (unsigned int) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3412,7 +3412,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_cmp) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3456,7 +3456,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_dcmp) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3589,13 +3589,13 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_set_relctx) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
   if ((*args[2])->type==IS_NULL) {
     arg3 = (char *) 0;
   } else {
@@ -3631,7 +3631,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_stat) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3713,7 +3713,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_dbi_flags) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -3745,7 +3745,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_set_userctx) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
   if ((*args[1])->type==IS_NULL) {
     arg2 = (char *) 0;
   } else {
@@ -3934,7 +3934,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_open) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
   if ((*args[1])->type==IS_NULL) {
     arg2 = (char *) 0;
   } else {
@@ -3944,13 +3944,13 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_open) {
   /*@SWIG@*/;
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[3]);
   arg4 = (int) Z_LVAL_PP(args[3]);
   /*@SWIG@*/;
@@ -3988,7 +3988,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_txn_begin) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -4021,7 +4021,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_dbi_open) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
   if ((*args[1])->type==IS_NULL) {
     arg2 = (char *) 0;
   } else {
@@ -4031,7 +4031,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_dbi_open) {
   /*@SWIG@*/;
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[2]);
   arg3 = (unsigned int) Z_LVAL_PP(args[2]);
   /*@SWIG@*/;
@@ -4063,7 +4063,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_cursor_open) {
     }
   }
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,7,CONVERT_INT_IN@*/
   convert_to_long_ex(args[1]);
   arg2 = (MDB_dbi) Z_LVAL_PP(args[1]);
   /*@SWIG@*/;
@@ -4089,7 +4089,7 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_val_create) {
   }
   
   
-  /*@SWIG:/usr/local/Cellar/swig/3.0.5/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
   if ((*args[0])->type==IS_NULL) {
     arg1 = (char *) 0;
   } else {
