@@ -8,27 +8,27 @@
  * interface file instead.
  * ----------------------------------------------------------------------------- */
 
-#ifndef PHP_EXAMPLE_H
-#define PHP_EXAMPLE_H
+#ifndef PHP_LMDB_H
+#define PHP_LMDB_H
 
-extern zend_module_entry example_module_entry;
-#define phpext_example_ptr &example_module_entry
+extern zend_module_entry lmdb_module_entry;
+#define phpext_lmdb_ptr &lmdb_module_entry
 
 #ifdef PHP_WIN32
-# define PHP_EXAMPLE_API __declspec(dllexport)
+# define PHP_LMDB_API __declspec(dllexport)
 #else
-# define PHP_EXAMPLE_API
+# define PHP_LMDB_API
 #endif
 
 #ifdef ZTS
 #include "TSRM.h"
 #endif
 
-PHP_MINIT_FUNCTION(example);
-PHP_MSHUTDOWN_FUNCTION(example);
-PHP_RINIT_FUNCTION(example);
-PHP_RSHUTDOWN_FUNCTION(example);
-PHP_MINFO_FUNCTION(example);
+PHP_MINIT_FUNCTION(lmdb);
+PHP_MSHUTDOWN_FUNCTION(lmdb);
+PHP_RINIT_FUNCTION(lmdb);
+PHP_RSHUTDOWN_FUNCTION(lmdb);
+PHP_MINFO_FUNCTION(lmdb);
 
 ZEND_NAMED_FUNCTION(_wrap_MDB_val_mv_size_set);
 ZEND_NAMED_FUNCTION(_wrap_MDB_val_mv_size_get);
@@ -76,7 +76,6 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_env_set_maxdbs);
 ZEND_NAMED_FUNCTION(_wrap_mdb_env_get_maxkeysize);
 ZEND_NAMED_FUNCTION(_wrap_mdb_env_get_userctx);
 ZEND_NAMED_FUNCTION(_wrap_mdb_txn_env);
-ZEND_NAMED_FUNCTION(_wrap_mdb_txn_id);
 ZEND_NAMED_FUNCTION(_wrap_mdb_txn_commit);
 ZEND_NAMED_FUNCTION(_wrap_mdb_txn_abort);
 ZEND_NAMED_FUNCTION(_wrap_mdb_txn_reset);
@@ -129,4 +128,4 @@ ZEND_NAMED_FUNCTION(_wrap_mdb_info_last_pgno);
 ZEND_NAMED_FUNCTION(_wrap_mdb_info_last_txnid);
 ZEND_NAMED_FUNCTION(_wrap_mdb_info_maxreaders);
 ZEND_NAMED_FUNCTION(_wrap_mdb_info_numreaders);
-#endif /* PHP_EXAMPLE_H */
+#endif /* PHP_LMDB_H */

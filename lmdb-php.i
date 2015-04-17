@@ -1,4 +1,4 @@
-%module example
+%module lmdb
 %include exception.i    
 
 %{
@@ -39,7 +39,9 @@
 %newobject mdb_env_stat_swig;
 %newobject mdb_set_relctx_swig;
 %newobject mdb_stat_swig;
+#if MDB_VERSION_PATCH > 10
 %newobject mdb_env_set_userctx_swig;
+#endif
 %newobject mdb_env_get_fd_swig;
 
 
@@ -52,7 +54,9 @@
 %rename (mdb_env_get_fd) mdb_env_get_fd_swig(MDB_env *env);
 %rename (mdb_env_get_path) mdb_env_get_path_swig(MDB_env *env);
 %rename (mdb_env_get_flags) mdb_env_get_flags_swig(MDB_env *env);
+#if MDB_VERSION_PATCH > 10
 %rename (mdb_env_set_userctx) mdb_env_set_userctx_swig(MDB_env *env, char *value);
+#endif
 %rename (mdb_dbi_flags) mdb_dbi_flags_swig(MDB_txn *txn, MDB_dbi dbi);
 %rename (mdb_cursor_count) mdb_cursor_count_swig(MDB_cursor *cursor);
 %rename (mdb_reader_check) mdb_reader_check_swig(MDB_env *env);
@@ -147,7 +151,9 @@
 
         return flags;
     }
-
+%}
+#if MDB_VERSION_PATCH > 10
+%inline %{
     int mdb_env_set_userctx_swig(MDB_env *env, char *value){
         int length = strlen(value);
         char *res = malloc(length);
@@ -164,7 +170,9 @@
 
         return (char *)pointer;
     }
-
+%}
+#endif
+%inline %{
     int mdb_env_get_flags_swig(MDB_env *env){
         unsigned int flags;
 
