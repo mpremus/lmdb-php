@@ -1015,17 +1015,17 @@ static swig_module_info swig_module = {swig_types, 18, 0, 0, 0, 0};
 /* -------- TYPES TABLE (END) -------- */
 
 /* header section */
-ZEND_BEGIN_MODULE_GLOBALS(example)
+ZEND_BEGIN_MODULE_GLOBALS(lmdb_php)
 const char *error_msg;
 int error_code;
-ZEND_END_MODULE_GLOBALS(example)
-ZEND_DECLARE_MODULE_GLOBALS(example)
+ZEND_END_MODULE_GLOBALS(lmdb_php)
+ZEND_DECLARE_MODULE_GLOBALS(lmdb_php)
 #ifdef ZTS
-#define SWIG_ErrorMsg() TSRMG(example_globals_id, zend_example_globals *, error_msg )
-#define SWIG_ErrorCode() TSRMG(example_globals_id, zend_example_globals *, error_code )
+#define SWIG_ErrorMsg() TSRMG(lmdb_php_globals_id, zend_lmdb_php_globals *, error_msg )
+#define SWIG_ErrorCode() TSRMG(lmdb_php_globals_id, zend_lmdb_php_globals *, error_code )
 #else
-#define SWIG_ErrorMsg() (example_globals.error_msg)
-#define SWIG_ErrorCode() (example_globals.error_code)
+#define SWIG_ErrorMsg() (lmdb_php_globals.error_msg)
+#define SWIG_ErrorCode() (lmdb_php_globals.error_code)
 #endif
 
 #ifdef __GNUC__
@@ -1037,18 +1037,18 @@ static void SWIG_FAIL(TSRMLS_D) {
     abort();
 }
 
-static void example_init_globals(zend_example_globals *globals ) {
+static void lmdb_php_init_globals(zend_lmdb_php_globals *globals ) {
   globals->error_msg = default_error_msg;
   globals->error_code = default_error_code;
 }
-static void example_destroy_globals(zend_example_globals * globals) { (void)globals; }
+static void lmdb_php_destroy_globals(zend_lmdb_php_globals * globals) { (void)globals; }
 
 static void SWIG_ResetError(TSRMLS_D) {
   SWIG_ErrorMsg() = default_error_msg;
   SWIG_ErrorCode() = default_error_code;
 }
 
-ZEND_NAMED_FUNCTION(_wrap_swig_example_alter_newobject) {
+ZEND_NAMED_FUNCTION(_wrap_swig_lmdb_php_alter_newobject) {
   zval **args[2];
   swig_object_wrapper *value;
   int type;
@@ -1063,7 +1063,7 @@ ZEND_NAMED_FUNCTION(_wrap_swig_example_alter_newobject) {
 
   return;
 }
-ZEND_NAMED_FUNCTION(_wrap_swig_example_get_newobject) {
+ZEND_NAMED_FUNCTION(_wrap_swig_lmdb_php_get_newobject) {
   zval **args[1];
   swig_object_wrapper *value;
   int type;
@@ -1078,14 +1078,14 @@ ZEND_NAMED_FUNCTION(_wrap_swig_example_get_newobject) {
 
   return;
 }
-#define SWIG_name  "example"
+#define SWIG_name  "lmdb_php"
 #ifdef __cplusplus
 extern "C" {
 #endif
 #include "php.h"
 #include "php_ini.h"
 #include "ext/standard/info.h"
-#include "php_example.h"
+#include "php_lmdb_php.h"
 #ifdef __cplusplus
 }
 #endif
@@ -1105,7 +1105,7 @@ extern "C" {
         int rc =  mdb_env_info(env, info);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_info: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_info: %d\n", rc);
         }
 
         return info;
@@ -1118,7 +1118,7 @@ extern "C" {
         int rc =  mdb_env_stat(env, stat);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_stat: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_stat: %d\n", rc);
         }
 
         return stat;
@@ -1142,7 +1142,7 @@ extern "C" {
         int rc = mdb_stat(txn, dbi, stat);
 
          if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_stat: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_stat: %d\n", rc);
         }
 
         return stat;
@@ -1154,7 +1154,7 @@ extern "C" {
         int rc = mdb_reader_check(env, &dead);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_reader_check: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_reader_check: %d\n", rc);
         }
 
         return dead;
@@ -1166,7 +1166,7 @@ extern "C" {
         int rc = mdb_cursor_count(cursor, &duplicates);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_cursor_count: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_cursor_count: %d\n", rc);
         }
 
         return duplicates;
@@ -1178,28 +1178,11 @@ extern "C" {
         int rc = mdb_dbi_flags(txn, dbi, &flags);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_dbi_flags: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_dbi_flags: %d\n", rc);
         }
 
         return flags;
-    }
-
-    int mdb_env_set_userctx_swig(MDB_env *env, char *value){
-        int length = strlen(value);
-        char *res = malloc(length);
-        strncpy(res, value, length);
-
-        void *pointer;
-        pointer = res;
-
-        return mdb_env_set_userctx(env, pointer);
-      }
-
-    char *mdb_env_get_userctx_swig(MDB_env *env){
-        void *pointer = mdb_env_get_userctx(env);
-
-        return (char *)pointer;
-    }
+    }   
 
     int mdb_env_get_flags_swig(MDB_env *env){
         unsigned int flags;
@@ -1207,7 +1190,7 @@ extern "C" {
         int rc = mdb_env_get_maxreaders(env, &flags);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_get_flags: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_get_flags: %d\n", rc);
         }
 
         return flags;
@@ -1219,7 +1202,7 @@ extern "C" {
         int rc = mdb_env_get_path(env, &path);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_get_path: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_get_path: %d\n", rc);
         }
 
         return (unsigned char *)path;
@@ -1231,7 +1214,7 @@ extern "C" {
         int rc = mdb_env_get_fd(env, &fd);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_get_fd: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_get_fd: %d\n", rc);
         }
 
         mdb_filehandle_t * fdp;
@@ -1246,7 +1229,7 @@ extern "C" {
         int rc = mdb_env_get_maxreaders(env, &readers);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_env_get_maxreaders: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_env_get_maxreaders: %d\n", rc);
         }
 
         return readers;
@@ -1258,7 +1241,7 @@ extern "C" {
         int rc = mdb_env_create(&env);
 
         if(rc != 0){	
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_txn_begin: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_txn_begin: %d\n", rc);
         }
 
         return env;
@@ -1274,7 +1257,7 @@ extern "C" {
         int rc = mdb_txn_begin(env, parent, flags, &txn);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE,"Error code for mdb_txn_begin: %d\n", rc);        
+            php_error_docref(NULL, E_NOTICE,"mdb_txn_begin: %d\n", rc);        
         }
 
         return txn;
@@ -1286,7 +1269,7 @@ extern "C" {
         int rc = mdb_dbi_open(txn, name, flags, &dbi);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_dbi_open: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_dbi_open: %d\n", rc);
         }
 
         return dbi;
@@ -1299,7 +1282,7 @@ extern "C" {
         int rc = mdb_cursor_open(txn, dbi, &cursor);
 
         if(rc != 0){
-            php_error_docref(NULL, E_NOTICE, "Error code for mdb_cursor_open: %d\n", rc);
+            php_error_docref(NULL, E_NOTICE, "mdb_cursor_open: %d\n", rc);
         }
 
         return cursor;
@@ -1374,6 +1357,24 @@ extern "C" {
     int mdb_info_numreaders(MDB_envinfo *info){
         return info->me_numreaders;
     }  
+
+
+    int mdb_env_set_userctx_swig(MDB_env *env, char *value){
+        int length = strlen(value);
+        char *res = malloc(length);
+        strncpy(res, value, length);
+
+        void *pointer;
+        pointer = res;
+
+        return mdb_env_set_userctx(env, pointer);
+    }
+
+    char *mdb_env_get_userctx_swig(MDB_env *env){
+        void *pointer = mdb_env_get_userctx(env);
+
+        return (char *)pointer;
+    }
 
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
@@ -3751,71 +3752,6 @@ fail:
 }
 
 
-ZEND_NAMED_FUNCTION(_wrap_mdb_env_set_userctx) {
-  MDB_env *arg1 = (MDB_env *) 0 ;
-  char *arg2 = (char *) 0 ;
-  zval **args[2];
-  int result;
-  
-  SWIG_ResetError(TSRMLS_C);
-  if(ZEND_NUM_ARGS() != 2 || zend_get_parameters_array_ex(2, args) != SUCCESS) {
-    WRONG_PARAM_COUNT;
-  }
-  
-  {
-    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_MDB_env, 0) < 0) {
-      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of mdb_env_set_userctx. Expected SWIGTYPE_p_MDB_env");
-    }
-  }
-  
-  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
-  if ((*args[1])->type==IS_NULL) {
-    arg2 = (char *) 0;
-  } else {
-    convert_to_string_ex(args[1]);
-    arg2 = (char *) Z_STRVAL_PP(args[1]);
-  }
-  /*@SWIG@*/;
-  
-  result = (int)mdb_env_set_userctx_swig(arg1,arg2);
-  {
-    ZVAL_LONG(return_value,result);
-  }
-  return;
-fail:
-  SWIG_FAIL(TSRMLS_C);
-}
-
-
-ZEND_NAMED_FUNCTION(_wrap_mdb_env_get_userctx_swig) {
-  MDB_env *arg1 = (MDB_env *) 0 ;
-  zval **args[1];
-  char *result = 0 ;
-  
-  SWIG_ResetError(TSRMLS_C);
-  if(ZEND_NUM_ARGS() != 1 || zend_get_parameters_array_ex(1, args) != SUCCESS) {
-    WRONG_PARAM_COUNT;
-  }
-  
-  {
-    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_MDB_env, 0) < 0) {
-      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of mdb_env_get_userctx_swig. Expected SWIGTYPE_p_MDB_env");
-    }
-  }
-  result = (char *)mdb_env_get_userctx_swig(arg1);
-  {
-    if(!result) {
-      ZVAL_NULL(return_value);
-    } else {
-      ZVAL_STRING(return_value, (char *)result, 1);
-    }
-  }
-  return;
-fail:
-  SWIG_FAIL(TSRMLS_C);
-}
-
-
 ZEND_NAMED_FUNCTION(_wrap_mdb_env_get_flags) {
   MDB_env *arg1 = (MDB_env *) 0 ;
   zval **args[1];
@@ -4489,6 +4425,71 @@ fail:
 }
 
 
+ZEND_NAMED_FUNCTION(_wrap_mdb_env_set_userctx) {
+  MDB_env *arg1 = (MDB_env *) 0 ;
+  char *arg2 = (char *) 0 ;
+  zval **args[2];
+  int result;
+  
+  SWIG_ResetError(TSRMLS_C);
+  if(ZEND_NUM_ARGS() != 2 || zend_get_parameters_array_ex(2, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_MDB_env, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of mdb_env_set_userctx. Expected SWIGTYPE_p_MDB_env");
+    }
+  }
+  
+  /*@SWIG:/usr/local/share/swig/3.0.5/php/utils.i,62,CONVERT_STRING_IN@*/
+  if ((*args[1])->type==IS_NULL) {
+    arg2 = (char *) 0;
+  } else {
+    convert_to_string_ex(args[1]);
+    arg2 = (char *) Z_STRVAL_PP(args[1]);
+  }
+  /*@SWIG@*/;
+  
+  result = (int)mdb_env_set_userctx_swig(arg1,arg2);
+  {
+    ZVAL_LONG(return_value,result);
+  }
+  return;
+fail:
+  SWIG_FAIL(TSRMLS_C);
+}
+
+
+ZEND_NAMED_FUNCTION(_wrap_mdb_env_get_userctx_swig) {
+  MDB_env *arg1 = (MDB_env *) 0 ;
+  zval **args[1];
+  char *result = 0 ;
+  
+  SWIG_ResetError(TSRMLS_C);
+  if(ZEND_NUM_ARGS() != 1 || zend_get_parameters_array_ex(1, args) != SUCCESS) {
+    WRONG_PARAM_COUNT;
+  }
+  
+  {
+    if(SWIG_ConvertPtr(*args[0], (void **) &arg1, SWIGTYPE_p_MDB_env, 0) < 0) {
+      SWIG_PHP_Error(E_ERROR, "Type error in argument 1 of mdb_env_get_userctx_swig. Expected SWIGTYPE_p_MDB_env");
+    }
+  }
+  result = (char *)mdb_env_get_userctx_swig(arg1);
+  {
+    if(!result) {
+      ZVAL_NULL(return_value);
+    } else {
+      ZVAL_STRING(return_value, (char *)result, 1);
+    }
+  }
+  return;
+fail:
+  SWIG_FAIL(TSRMLS_C);
+}
+
+
 static ZEND_RSRC_DTOR_FUNC(_wrap_destroy_p_f_p_q_const__struct_MDB_val_p_q_const__struct_MDB_val__int) {
   /* No destructor for simple type _p_f_p_q_const__struct_MDB_val_p_q_const__struct_MDB_val__int */
   efree(rsrc->ptr);
@@ -4840,13 +4841,6 @@ ZEND_BEGIN_ARG_INFO_EX(swig_arginfo_mdb_dbi_flags, 0, 0, 0)
  ZEND_ARG_PASS_INFO(0)
  ZEND_ARG_PASS_INFO(0)
 ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(swig_arginfo_mdb_env_set_userctx, 0, 0, 0)
- ZEND_ARG_PASS_INFO(0)
- ZEND_ARG_PASS_INFO(0)
-ZEND_END_ARG_INFO()
-ZEND_BEGIN_ARG_INFO_EX(swig_arginfo_mdb_env_get_userctx_swig, 0, 0, 0)
- ZEND_ARG_PASS_INFO(0)
-ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(swig_arginfo_mdb_env_get_flags, 0, 0, 0)
  ZEND_ARG_PASS_INFO(0)
 ZEND_END_ARG_INFO()
@@ -4926,11 +4920,18 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_INFO_EX(swig_arginfo_mdb_info_numreaders, 0, 0, 0)
  ZEND_ARG_PASS_INFO(0)
 ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(swig_arginfo_mdb_env_set_userctx, 0, 0, 0)
+ ZEND_ARG_PASS_INFO(0)
+ ZEND_ARG_PASS_INFO(0)
+ZEND_END_ARG_INFO()
+ZEND_BEGIN_ARG_INFO_EX(swig_arginfo_mdb_env_get_userctx_swig, 0, 0, 0)
+ ZEND_ARG_PASS_INFO(0)
+ZEND_END_ARG_INFO()
 
 
 /* entry subsection */
 /* Every non-class user visible function must have an entry here */
-static zend_function_entry example_functions[] = {
+static zend_function_entry lmdb_php_functions[] = {
  SWIG_ZEND_NAMED_FE(mdb_val_mv_size_set,_wrap_MDB_val_mv_size_set,swig_arginfo_mdb_val_mv_size_set)
  SWIG_ZEND_NAMED_FE(mdb_val_mv_size_get,_wrap_MDB_val_mv_size_get,swig_arginfo_mdb_val_mv_size_get)
  SWIG_ZEND_NAMED_FE(mdb_val_mv_data_set,_wrap_MDB_val_mv_data_set,swig_arginfo_mdb_val_mv_data_set)
@@ -5004,8 +5005,6 @@ static zend_function_entry example_functions[] = {
  SWIG_ZEND_NAMED_FE(mdb_reader_check,_wrap_mdb_reader_check,swig_arginfo_mdb_reader_check)
  SWIG_ZEND_NAMED_FE(mdb_cursor_count,_wrap_mdb_cursor_count,swig_arginfo_mdb_cursor_count)
  SWIG_ZEND_NAMED_FE(mdb_dbi_flags,_wrap_mdb_dbi_flags,swig_arginfo_mdb_dbi_flags)
- SWIG_ZEND_NAMED_FE(mdb_env_set_userctx,_wrap_mdb_env_set_userctx,swig_arginfo_mdb_env_set_userctx)
- SWIG_ZEND_NAMED_FE(mdb_env_get_userctx_swig,_wrap_mdb_env_get_userctx_swig,swig_arginfo_mdb_env_get_userctx_swig)
  SWIG_ZEND_NAMED_FE(mdb_env_get_flags,_wrap_mdb_env_get_flags,swig_arginfo_mdb_env_get_flags)
  SWIG_ZEND_NAMED_FE(mdb_env_get_path,_wrap_mdb_env_get_path,swig_arginfo_mdb_env_get_path)
  SWIG_ZEND_NAMED_FE(mdb_env_get_fd,_wrap_mdb_env_get_fd,swig_arginfo_mdb_env_get_fd)
@@ -5030,8 +5029,10 @@ static zend_function_entry example_functions[] = {
  SWIG_ZEND_NAMED_FE(mdb_info_last_txnid,_wrap_mdb_info_last_txnid,swig_arginfo_mdb_info_last_txnid)
  SWIG_ZEND_NAMED_FE(mdb_info_maxreaders,_wrap_mdb_info_maxreaders,swig_arginfo_mdb_info_maxreaders)
  SWIG_ZEND_NAMED_FE(mdb_info_numreaders,_wrap_mdb_info_numreaders,swig_arginfo_mdb_info_numreaders)
- SWIG_ZEND_NAMED_FE(swig_example_alter_newobject,_wrap_swig_example_alter_newobject,NULL)
- SWIG_ZEND_NAMED_FE(swig_example_get_newobject,_wrap_swig_example_get_newobject,NULL)
+ SWIG_ZEND_NAMED_FE(mdb_env_set_userctx,_wrap_mdb_env_set_userctx,swig_arginfo_mdb_env_set_userctx)
+ SWIG_ZEND_NAMED_FE(mdb_env_get_userctx_swig,_wrap_mdb_env_get_userctx_swig,swig_arginfo_mdb_env_get_userctx_swig)
+ SWIG_ZEND_NAMED_FE(swig_lmdb_php_alter_newobject,_wrap_swig_lmdb_php_alter_newobject,NULL)
+ SWIG_ZEND_NAMED_FE(swig_lmdb_php_get_newobject,_wrap_swig_lmdb_php_get_newobject,NULL)
 {NULL, NULL, NULL}
 };
 
@@ -5040,29 +5041,29 @@ static zend_function_entry example_functions[] = {
 #undef ZEND_MODULE_BUILD_ID
 #define ZEND_MODULE_BUILD_ID (char*)"API" ZEND_TOSTR(ZEND_MODULE_API_NO) ZEND_BUILD_TS ZEND_BUILD_DEBUG ZEND_BUILD_SYSTEM ZEND_BUILD_EXTRA
 #endif
-zend_module_entry example_module_entry = {
+zend_module_entry lmdb_php_module_entry = {
     STANDARD_MODULE_HEADER,
-    (char*)"example",
-    example_functions,
-    PHP_MINIT(example),
-    PHP_MSHUTDOWN(example),
-    PHP_RINIT(example),
-    PHP_RSHUTDOWN(example),
-    PHP_MINFO(example),
+    (char*)"lmdb_php",
+    lmdb_php_functions,
+    PHP_MINIT(lmdb_php),
+    PHP_MSHUTDOWN(lmdb_php),
+    PHP_RINIT(lmdb_php),
+    PHP_RSHUTDOWN(lmdb_php),
+    PHP_MINFO(lmdb_php),
     NO_VERSION_YET,
     STANDARD_MODULE_PROPERTIES
 };
-zend_module_entry* SWIG_module_entry = &example_module_entry;
+zend_module_entry* SWIG_module_entry = &lmdb_php_module_entry;
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-SWIGEXPORT zend_module_entry *get_module(void) { return &example_module_entry; }
+SWIGEXPORT zend_module_entry *get_module(void) { return &lmdb_php_module_entry; }
 #ifdef __cplusplus
 }
 #endif
 
-#define SWIG_php_minit PHP_MINIT_FUNCTION(example)
+#define SWIG_php_minit PHP_MINIT_FUNCTION(lmdb_php)
 /* -----------------------------------------------------------------------------
  * Type initialization:
  * This problem is tough by the requirement that no dynamic
@@ -5299,7 +5300,7 @@ SWIG_PropagateClientData(void) {
     SWIG_InitializeModule(0);
 
 /* oinit subsection */
-ZEND_INIT_MODULE_GLOBALS(example, example_init_globals, example_destroy_globals);
+ZEND_INIT_MODULE_GLOBALS(lmdb_php, lmdb_php_init_globals, lmdb_php_destroy_globals);
 
 /* Register resource destructors for pointer types */
 le_swig__p_f_p_q_const__struct_MDB_val_p_q_const__struct_MDB_val__int=zend_register_list_destructors_ex(_wrap_destroy_p_f_p_q_const__struct_MDB_val_p_q_const__struct_MDB_val__int,NULL,(char *)(SWIGTYPE_p_f_p_q_const__struct_MDB_val_p_q_const__struct_MDB_val__int->name),module_number);
@@ -5419,7 +5420,7 @@ SWIG_LONG_CONSTANT(MDB_LAST_ERRCODE, (int)(-30780));
     return SUCCESS;
 }
 
-PHP_RINIT_FUNCTION(example)
+PHP_RINIT_FUNCTION(lmdb_php)
 {
 /* rinit section */
 
@@ -5429,23 +5430,23 @@ PHP_RINIT_FUNCTION(example)
     return SUCCESS;
 }
 
-PHP_MSHUTDOWN_FUNCTION(example)
+PHP_MSHUTDOWN_FUNCTION(lmdb_php)
 {
 /* shutdown section */
 #ifdef ZTS
-    ts_free_id(example_globals_id);
+    ts_free_id(lmdb_php_globals_id);
 #endif
     return SUCCESS;
 }
 
-PHP_RSHUTDOWN_FUNCTION(example)
+PHP_RSHUTDOWN_FUNCTION(lmdb_php)
 {
 /* rshutdown section */
 
     return SUCCESS;
 }
 
-PHP_MINFO_FUNCTION(example)
+PHP_MINFO_FUNCTION(lmdb_php)
 {
 }
 /* end init section */

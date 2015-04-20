@@ -1,4 +1,4 @@
-%module example
+%module lmdb_php
 %include exception.i    
 
 %{
@@ -26,6 +26,9 @@
 %ignore mdb_set_dupsort;
 %ignore mdb_set_relfunc;
 %ignore mdb_env_set_assert;
+#if MDB_VERSION_PATCH > 10
+%ignore mdb_env_set_userctx;
+#endif
 
 %include "lmdb.h"
 
@@ -39,8 +42,10 @@
 %newobject mdb_env_stat_swig;
 %newobject mdb_set_relctx_swig;
 %newobject mdb_stat_swig;
-%newobject mdb_env_set_userctx_swig;
 %newobject mdb_env_get_fd_swig;
+#if MDB_VERSION_PATCH > 10
+%newobject mdb_env_set_userctx_swig;
+#endif
 
 
 %rename (mdb_env_create) mdb_env_create_swig();
@@ -52,7 +57,6 @@
 %rename (mdb_env_get_fd) mdb_env_get_fd_swig(MDB_env *env);
 %rename (mdb_env_get_path) mdb_env_get_path_swig(MDB_env *env);
 %rename (mdb_env_get_flags) mdb_env_get_flags_swig(MDB_env *env);
-%rename (mdb_env_set_userctx) mdb_env_set_userctx_swig(MDB_env *env, char *value);
 %rename (mdb_dbi_flags) mdb_dbi_flags_swig(MDB_txn *txn, MDB_dbi dbi);
 %rename (mdb_cursor_count) mdb_cursor_count_swig(MDB_cursor *cursor);
 %rename (mdb_reader_check) mdb_reader_check_swig(MDB_env *env);
@@ -60,6 +64,10 @@
 %rename (mdb_set_relctx) mdb_set_relctx_swig(MDB_txn *txn, MDB_dbi dbi, char *value);
 %rename (mdb_env_stat) mdb_env_stat_swig(MDB_env *env);
 %rename (mdb_env_info) mdb_env_info_swig(MDB_env *env);
+
+#if MDB_VERSION_PATCH > 10
+%rename (mdb_env_set_userctx) mdb_env_set_userctx_swig(MDB_env *env, char *value);
+#endif
 
 %inline %{
     MDB_envinfo *mdb_env_info_swig(MDB_env *env){
@@ -146,24 +154,7 @@
         }
 
         return flags;
-    }
-
-    int mdb_env_set_userctx_swig(MDB_env *env, char *value){
-        int length = strlen(value);
-        char *res = malloc(length);
-        strncpy(res, value, length);
-
-        void *pointer;
-        pointer = res;
-
-        return mdb_env_set_userctx(env, pointer);
-      }
-
-    char *mdb_env_get_userctx_swig(MDB_env *env){
-        void *pointer = mdb_env_get_userctx(env);
-
-        return (char *)pointer;
-    }
+    }   
 
     int mdb_env_get_flags_swig(MDB_env *env){
         unsigned int flags;
@@ -340,6 +331,26 @@
     }  
 %}
 
+#if MDB_VERSION_PATCH > 10
+%inline %{
+    int mdb_env_set_userctx_swig(MDB_env *env, char *value){
+        int length = strlen(value);
+        char *res = malloc(length);
+        strncpy(res, value, length);
+
+        void *pointer;
+        pointer = res;
+
+        return mdb_env_set_userctx(env, pointer);
+    }
+
+    char *mdb_env_get_userctx_swig(MDB_env *env){
+        void *pointer = mdb_env_get_userctx(env);
+
+        return (char *)pointer;
+    }
+%}
+#endif
 
 
 
