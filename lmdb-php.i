@@ -97,14 +97,11 @@
     }
 
     int mdb_set_relctx_swig(MDB_txn *txn, MDB_dbi dbi, char *value){
-        int length = strlen(value);
+        int length = strlen(value) + 1;
         char *res = malloc(length);
         strncpy(res, value, length);
 
-        void *pointer;
-        pointer = res;
-
-        return mdb_set_relctx(txn, dbi, pointer);
+        return mdb_set_relctx(txn, dbi, (void*)res);
     }
 
     MDB_stat  *mdb_stat_swig(MDB_txn *txn, MDB_dbi dbi){
@@ -264,7 +261,7 @@
         MDB_val *key;
         key = (MDB_val*)malloc( sizeof( MDB_val ) );
 
-        int length = strlen(value);
+        int length = strlen(value) + 1;
         char *res = malloc(length);
         strncpy(res, value, length);
 
@@ -334,14 +331,11 @@
 #if MDB_VERSION_PATCH > 10
 %inline %{
     int mdb_env_set_userctx_swig(MDB_env *env, char *value){
-        int length = strlen(value);
+        int length = strlen(value) + 1;
         char *res = malloc(length);
         strncpy(res, value, length);
 
-        void *pointer;
-        pointer = res;
-
-        return mdb_env_set_userctx(env, pointer);
+        return mdb_env_set_userctx(env, (void*)res);
     }
 
     char *mdb_env_get_userctx_swig(MDB_env *env){
