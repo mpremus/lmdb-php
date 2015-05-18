@@ -3,7 +3,7 @@ This is a PHP binding for LMDB (http://symas.com/mdb/), an extremely fast and li
 
 ##About this module
 
-The aim of this module is to provide PHP bindings so that people can use LMDB in their applications.
+This module provides complete PHP bindings for LMDB.
  
 ##Examples
 
