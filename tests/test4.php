@@ -22,7 +22,6 @@ if($rcDel == 0)
 else
 	print_r("Error on delete. Code: $rcDel. If error code if -30798 key cant be found in DB");
 
-$txn->abort();
 $dbi->close($env);
 $env->close();
 
